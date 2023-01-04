@@ -18,4 +18,16 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  #packages to install
+  home.packages = [
+    # pkgs is the set of all packages in the default home.nix implementation
+    pkgs.tmux
+  ];
+  home.file.".zshrc".source = ./.zshrc;
+  home.file.".gitconfig".source = ./.gitconfig;
+  home.file.".nix-channels".source = ./.nix-channels;
+  home.file.".p10k.zsh".source  = ./.p10k.zsh;
+  home.file.".zprofile".source = ./.zprofile;
+  home.file.".profile".source = ./.profile;
 }
