@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 
-{
+
+
+let 
+  mkPersistentLink = path: pkgs.runCommand "persistent-link" {} ''
+    builtins.trace ''ln -s $HOME/${path}''
+    ln -s $HOME/${path} $out
+  '';
+
+in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "mwdavisii";
@@ -30,4 +38,12 @@
   home.file.".p10k.zsh".source  = ./.p10k.zsh;
   home.file.".zprofile".source = ./.zprofile;
   home.file.".profile".source = ./.profile;
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+    
+  home.file.".config".source = mkPersistentLink ".config";
 }
