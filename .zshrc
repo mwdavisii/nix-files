@@ -147,3 +147,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source <(kubectl completion zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(startship init zsh)"
