@@ -7,6 +7,7 @@ fi
 
 export NIX_PATH=${NIX_PATH:+$NIX_PATH:}$HOME/.nix-defexpr/channels
 
+#export NODE_OPTIONS=--openssl-legacy-provider
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 #go
@@ -147,4 +148,3 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source <(kubectl completion zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(startship init zsh)"
