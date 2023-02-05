@@ -43,12 +43,14 @@
     pkgs.tmux
   ];
   home.file.".zshrc".source = ./.zshrc;
+  home.file.".bashrc".source = ./.bashrc;
   home.file.".gitconfig".source = ./.gitconfig;
   home.file.".nix-channels".source = ./.nix-channels;
   home.file.".p10k.zsh".source  = ./.p10k.zsh;
   home.file.".zprofile".source = ./.zprofile;
   home.file.".profile".source = ./.profile;
   home.file.".config/nvim/init.vim".source = ./.config/nvim/init.vim;
+  home.file.".config/starship/starship.toml".source = ./.config/starship/starship.toml;
   programs.starship = {
     enable = true;
     # Configuration written to ~/.config/starship.toml
