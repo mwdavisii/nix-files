@@ -1,1 +1,5 @@
-/nix/store/nh4qr9fr7wknh4n8ghilnf0wf9q8fgmc-home-manager-files/.gitconfig
+[user]
+	email = mwdavisii@gmail.com
+	name = Mike D.
+[init]
+	defaultBranch = main

@@ -147,4 +147,8 @@ export PATH=$PATH:$HOME/bin
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source <(kubectl completion zsh)
 
+eval "$(starship init zsh)"
+
+. <(flux completion zsh)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
