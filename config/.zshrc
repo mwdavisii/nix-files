@@ -50,27 +50,6 @@ alias k="kubectl"
 alias kap="kubectl apply -f "
 alias kad="kubectl delete -f "
 
-
-#########################################################################################
-#  ZSH Configurations
-#########################################################################################
-CASE_SENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  docker
-  fluxcd
-)
-
-# Visual customisation of the second prompt line
-local user_symbol="$"
-if [[ $(print -P "%#") =~ "#" ]]; then
-    user_symbol = "#"
-fi
-
 #########################################################################################
 #  Code Helpers
 #########################################################################################
@@ -106,14 +85,14 @@ function cd() {
   fi
 }
 
-## Evals & Sources
+## Evals & Sourcess
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
-eval "$(starship init zsh)" #Launch Starship
-source <(kubectl completion zsh) #Kubectl Autocompletion
-. <(flux completion zsh) # Flux Autocompletion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
+#eval "$(starship init zsh)" #Launch Starship
+#source <(kubectl completion zsh) #Kubectl Autocompletion
+#. <(flux completion zsh) # Flux Autocompletion
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
 
 if [ -e /home/mwdavisii/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mwdavisii/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
