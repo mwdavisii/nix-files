@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
-eval "$(startship init zsh)" #Launch Starship
+eval "$(starship init zsh)" #Launch Starship
 source <(kubectl completion zsh) #Kubectl Autocompletion
 . <(flux completion zsh) # Flux Autocompletion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
