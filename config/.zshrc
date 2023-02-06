@@ -89,10 +89,10 @@ function cd() {
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
-#eval "$(starship init zsh)" #Launch Starship
-#source <(kubectl completion zsh) #Kubectl Autocompletion
-#. <(flux completion zsh) # Flux Autocompletion
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
+eval "$(starship init zsh)" #Launch Starship
+source <(kubectl completion zsh) #Kubectl Autocompletion
+. <(flux completion zsh) # Flux Autocompletion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
 
 if [ -e /home/mwdavisii/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mwdavisii/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
