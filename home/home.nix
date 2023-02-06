@@ -20,6 +20,6 @@
   home.file.".config/starship/starship.toml".source = ../dotfiles/.config/starship/starship.toml;
   
   imports = [
-    ../modules/default.nix
+    ./modules/default.nix
   ];
 }
