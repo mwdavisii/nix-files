@@ -32,7 +32,7 @@
     # eww.url = "github:elkowar/eww";
   };
 
-  outputs = { self, ... }@inputs:
+  outputs = { self, home-manager, ... }@inputs:
     with self.lib;
     let
       systems = [ "x86_64-linux" "x86_64-darwin" ];
@@ -48,8 +48,8 @@
     in
     rec {
       inherit pkgsBySystem;
+      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
       lib = import ./lib { inherit inputs; } // inputs.nixpkgs.lib;
-
       devShell = foreachSystem (system: import ./shell.nix { pkgs = pkgsBySystem."${system}"; });
 
       templates = import ./nix/templates;
