@@ -25,6 +25,7 @@
     ../programs/nvim.nix
     ../programs/vim.nix
     ../programs/zsh.nix
+    ../programs/exa.nix
   ];
 
 
