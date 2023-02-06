@@ -22,6 +22,11 @@
   */
   
   imports = [
-    ./modules/default.nix
+    ../programs/git.nix
+    ../programs/starship.nix
+    ../programs/nvim.nix
+    ../programs/vim.nix
+    ../programs/zsh.nix
+    ../programs/discord.nix
   ];
 }
