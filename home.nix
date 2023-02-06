@@ -21,39 +21,11 @@
   
   imports = [
     ./programs/git.nix
+    ./programs/starship.nix
+    ./programs/nvim.nix
+    ./programs/vim.nix
+    ./programs/zsh.nix
   ];
 
-  programs.zsh = {
-    enable = true;
-  };
 
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-    };
-  };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.vim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [ vim-airline ];
-    settings = { ignorecase = true; };
-    extraConfig = ''
-      set mouse=a
-    '';
-  };
 }
