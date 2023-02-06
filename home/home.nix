@@ -20,12 +20,12 @@
   home.file.".config/starship/starship.toml".source = ../dotfiles/.config/starship/starship.toml;
   
   imports = [
+    ../programs/exa.nix
     ../programs/git.nix
-    ../programs/starship.nix
     ../programs/nvim.nix
+    ../programs/starship.nix
     ../programs/vim.nix
     ../programs/zsh.nix
-    ../programs/exa.nix
   ];
 
 
