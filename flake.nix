@@ -8,6 +8,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    
+    # Overlays
+    fenix.url = "github:nix-community/fenix";
+    fenix.inputs.nixpkgs.follows = "nixpkgs";
+
+    neovim-flake.url = "github:neovim/neovim?dir=contrib";
+    neovim-flake.inputs.nixpkgs.follows = "nixpkgs";
+
+    nushell-src.url = "github:nushell/nushell";
+    nushell-src.flake = false;
   };
   
   outputs = inputs @ { self, home-manager, nixpkgs, ... }: 
