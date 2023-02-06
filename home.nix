@@ -19,9 +19,9 @@
   home.file.".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   home.file.".config/starship/starship.toml".source = ./dotfiles/.config/starship/starship.toml;
   
-  programs.git = {
-    enable = true;
-  };
+  imports = [
+    ./programs/git.nix
+  ];
 
   programs.zsh = {
     enable = true;
