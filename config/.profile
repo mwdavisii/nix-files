@@ -1,30 +1,30 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
+#
+#    ██████╗ ██████╗  ██████╗ ███████╗██╗██╗     ███████╗
+#    ██╔══██╗██╔══██╗██╔═══██╗██╔════╝██║██║     ██╔════╝
+#    ██████╔╝██████╔╝██║   ██║█████╗  ██║██║     █████╗
+#    ██╔═══╝ ██╔══██╗██║   ██║██╔══╝  ██║██║     ██╔══╝
+# ██╗██║     ██║  ██║╚██████╔╝██║     ██║███████╗███████╗
+# ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
+#
 
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
+# if nix is installed then source profile
+[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
+[[ -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]] && . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+[[ -f /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh ]] && . /etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+[[ -d $HOME/.config/shell/login ]] && {
+    for rc in $HOME/.config/shell/login/*.sh; do
+        source $rc
+    done
+}
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+[[ -f $HOME/.local/share/bash/nyx_profile ]] && . $HOME/.local/share/bash/nyx_profile
+[[ -f $HOME/.local/share/bash/profile ]]     && . $HOME/.local/share/bash/profile
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-. "$HOME/.cargo/env"
+# lauch x server when logging in to tty1
+[[ "$(tty)" = "/dev/tty1" ]] && {
+    [[ -x $(command -v startx) ]] && {
+        ( pgrep xinit &>/dev/null && echo "Note: X Server is already running." || startx )
+    }
+}
 
-if [ -e /home/mwdavisii/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mwdavisii/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
