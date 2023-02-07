@@ -12,8 +12,6 @@
       python39
       pipenv
       tmux
-      (fenix.stable.withComponents cfg.stableComponents)
-      (fenix.latest.withComponents cfg.nightlyComponents)
     ];
   };
   #home.file.".zshrc".source = ../dotfiles/.zshrc;
@@ -25,6 +23,7 @@
   home.file.".config/starship/starship.toml".source = ../dotfiles/.config/starship/starship.toml;
   
   imports = [
+    ./apps/default.nix
     ./shell/default.nix
     ./common/default.nix
     ./dev/default.nix
