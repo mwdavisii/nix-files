@@ -9,8 +9,6 @@
 
   home = {
     packages = with pkgs; [
-      python39
-      pipenv
       tmux
     ];
   };
