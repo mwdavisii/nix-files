@@ -11,5 +11,5 @@
         poetry
         pylint
         setuptools
-      ] 
+      ];
 }
