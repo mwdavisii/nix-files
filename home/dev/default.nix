@@ -4,7 +4,7 @@
   imports = [ 
     ./go.nix
     ./python.nix
-    #./cpp.nix
+    ./lua.nix
     #./rust.nix
   ];
 }
