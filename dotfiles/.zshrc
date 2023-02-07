@@ -21,7 +21,7 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.dotnet
 
 #node & nvm
-export NODE_OPTIONS=--openssl-legacy-provider
+#export NODE_OPTIONS=--openssl-legacy-provider
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -31,19 +31,13 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #zsh
 export ZSH=~/.oh-my-zsh
 
-#########################################################################################
-#  ZSH Configurations
-#########################################################################################
-CASE_SENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  docker
-  fluxcd
-)
+#plugins=(
+#  zsh-autosuggestions
+#  zsh-syntax-highlighting
+#  docker
+#  fluxcd
+#)
 
 # Visual customisation of the second prompt line
 local user_symbol="$"
@@ -87,8 +81,8 @@ function cd() {
 }
 
 ## Evals & Sources
-source $ZSH/oh-my-zsh.sh
-source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $ZSH/oh-my-zsh.sh
+#source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
 eval "$(starship init zsh)" #Launch Starship

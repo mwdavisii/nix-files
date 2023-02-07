@@ -3,7 +3,7 @@
 {
   programs.zsh = {
     enable = true;
-    shellGlobalAliases = {
+    shellAliases = {
       "ls"="exa -alG";
       "clr"="clear";
       "vi"="nvim";
@@ -18,6 +18,17 @@
       "k"="kubectl";
       "kap"="kubectl apply -f ";
       "kad"="kubectl delete -f ";
+    };
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "zsh-autosuggestions"
+        "zsh-syntax-highlighting"
+        "docker"
+        "fluxcd"
+      ];
     };
   };
 }
