@@ -5,6 +5,7 @@
     ./go.nix
     ./python.nix
     ./lua.nix
-    #./rust.nix
+    ./nix.nix
+    ./node.nix
   ];
 }
