@@ -31,6 +31,7 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'feline-nvim/feline.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'ful1e5/onedark.nvim'
+Plug 'leoluz/nvim-dap-go'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
