@@ -2,7 +2,9 @@
   description = "Home Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +26,12 @@
     
   let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    #pkgs = nixpkgs.legacyPackages.${system};
+    allowUnfree = { nixpkgs.config.allowUnfree = true; };
     #pkgs.${system}.defaultPackage = nixpkgs.legacyPackages.${system};
     
   in {

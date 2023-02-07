@@ -7,9 +7,10 @@
   home.homeDirectory = "/home/mwdavisii";
   home.stateVersion = "23.05";
 
-  home.packages = [
-    # pkgs is the set of all packages in the default home.nix implementation
-    pkgs.tmux
+  home.packages = with pkgs; [
+    python39
+    pipenv
+    tmux
   ];
   
   #home.file.".zshrc".source = ../dotfiles/.zshrc;

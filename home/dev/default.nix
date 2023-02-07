@@ -4,7 +4,7 @@
   imports = [ 
     ./vscode.nix
     ./go.nix
-    #./python.nix
+    ./python.nix
     #./cpp.nix
     #./rust.nix
   ];
