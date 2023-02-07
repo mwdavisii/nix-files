@@ -8,23 +8,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    
+    # Overlays
+    fenix.url = "github:nix-community/fenix";
+    fenix.inputs.nixpkgs.follows = "nixpkgs";
+
+    neovim-flake.url = "github:neovim/neovim?dir=contrib";
+    neovim-flake.inputs.nixpkgs.follows = "nixpkgs";
+
+    nushell-src.url = "github:nushell/nushell";
+    nushell-src.flake = false;
   };
   
-  outputs = inputs @ { self, flake-parts, home-manager, nixpkgs, ... }: 
-  flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        # To import a flake module
-        # 1. Add foo to inputs
-        # 2. Add foo as a parameter to the outputs function
-        # 3. Add here: foo.flakeModule
-
+  outputs = inputs @ { self, home-manager, nixpkgs, ... }: 
+    
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    #pkgs.${system}.defaultPackage = nixpkgs.legacyPackages.${system};
+    
+  in {
+    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+    homeConfigurations.mwdavisii = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./home/home.nix
       ];
-    flake = {
-      homeConfigurations.mwdavisii = home-manager.lib.homeManagerConfiguration {
-        modules = [
-          ./home/home.nix
-      ];
-      };
     };
   };
 }

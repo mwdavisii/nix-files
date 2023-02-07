@@ -21,11 +21,7 @@
   home.file.".config/starship/starship.toml".source = ../config/.config/starship/starship.toml;
   
   imports = [
-    ../programs/discord.nix
-    ../programs/git.nix
-    ../programs/nvim.nix
-    ../programs/starship.nix
-    ../programs/vim.nix
-    ../programs/zsh.nix
+    ./shell/default.nix
+    ./common/default.nix
   ];
 }
