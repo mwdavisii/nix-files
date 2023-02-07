@@ -64,15 +64,6 @@
       opa = {
         format = "via [⛑️  $version](bold red) ";
       };
-
-      status = {
-        style = "bg:blue";
-        symbol = "🔴 ";
-        success_symbol = "🟢 SUCCESS";
-        format = "[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) ";
-        map_symbol = true;
-        disabled = false;
-      };
       python = {
         symbol = "👾 ";
         pyenv_version_name = true;
