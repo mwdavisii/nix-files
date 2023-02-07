@@ -22,6 +22,7 @@
     };
     enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
+    
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -30,7 +31,8 @@
       ];
     };
     initExtra = ''
-        function cd() {
+      export PATH=$PATH:~/anaconda3/bin
+      function cd() {
         builtin cd "$@"
 
         if [[ -z "$VIRTUAL_ENV" ]] ; then
