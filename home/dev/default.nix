@@ -8,6 +8,6 @@
     ./lua.nix
     ./nix.nix
     ./node.nix
-    ./rust.nix
+    #./rust.nix
   ];
 }
