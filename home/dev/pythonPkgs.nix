@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs.python3.withPackages [
+    home.packages = with pkgs.python3.withPackages; [
         aiohttp # async HTTP
         beautifulsoup4 # web scraping
         folium # maps
