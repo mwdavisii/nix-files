@@ -3,7 +3,7 @@
 {
   programs.zsh = {
     enable = true;
-    shellAliases = {
+    shellGlobalAliases = {
       "ls"="exa -alG";
       "clr"="clear";
       "vi"="nvim";
