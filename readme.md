@@ -14,7 +14,7 @@ This was used and tested with Ubuntu 22.10.
 
 ## Neovim
 
-I'm using a config file for neovim (/.config/nvim/init.vim) because I haven't taken the time to migrate to flake settings. Since it's static, you'll need to a few things manually to get it to work:
+I'm using a config file for neovim (/.config/nvim/init.vim) because I haven't taken the time to migrate to flake settings. Since it's static, you'll need to do a few things manually to get it to work:
 
 1. Install VIMPlug
 
