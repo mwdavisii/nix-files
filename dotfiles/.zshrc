@@ -9,11 +9,11 @@ export PATH=$PATH:$HOME/bin
 export NIX_PATH=${NIX_PATH:+$NIX_PATH:}$HOME/.nix-defexpr/channels
 
 #go
-export GOROOT=/usr/local/go
-export GOBIN=/usr/local/go/bin
-export GOPRIVATE=github.com/uLabSystems
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOBIN:$GOPATH
+#export GOROOT=/usr/local/go
+#export GOBIN=/usr/local/go/bin
+#export GOPRIVATE=github.com/uLabSystems
+#export GOPATH=$HOME/go
+#export PATH=$PATH:$GOBIN:$GOPATH
 #python
 export PATH=$PATH:~/.local/bin
 
