@@ -7,12 +7,15 @@
   home.homeDirectory = "/home/mwdavisii";
   home.stateVersion = "23.05";
 
-  home.packages = with pkgs; [
-    python39
-    pipenv
-    tmux
-  ];
-  
+  home = {
+    packages = with pkgs; [
+      python39
+      pipenv
+      tmux
+      (fenix.stable.withComponents cfg.stableComponents)
+      (fenix.latest.withComponents cfg.nightlyComponents)
+    ];
+  };
   #home.file.".zshrc".source = ../dotfiles/.zshrc;
   home.file.".bashrc".source = ../dotfiles/.bashrc;
   home.file.".gitconfig".source = ../dotfiles/.gitconfig;
