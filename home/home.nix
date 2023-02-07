@@ -18,7 +18,7 @@
   home.file.".nix-channels".source = ../dotfiles/.nix-channels;
   home.file.".profile".source = ../dotfiles/.profile;
   home.file.".config/nvim/init.vim".source = ../dotfiles/.config/nvim/init.vim;
-  home.file.".config/starship/starship.toml".source = ../dotfiles/.config/starship/starship.toml;
+  #home.file.".config/starship/starship.toml".source = ../dotfiles/.config/starship/starship.toml;
   
   imports = [
     ./apps/default.nix
