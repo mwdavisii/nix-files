@@ -25,10 +25,17 @@
       conda = {
         format = "[$symbol$environment](dimmed green) ";
       };
-      git_branch = {
-          symbol = "🌱 ";
-          truncation_length = 4;
-          truncation_symbol = "";
+      nodejs = {
+        format = "via [🤖 $version](bold green) ";
+      };
+      #git_branch = {
+      #    symbol = "🌱 ";
+      #    truncation_length = 4;
+      #    truncation_symbol = "";
+      #};
+      git_commit = {
+        commit_hash_length = 4;
+        tag_symbol = "🔖 ";
       };
       git_status = {
           conflicted = "🏳";
@@ -66,11 +73,14 @@
         map_symbol = true;
         disabled = false;
       };
+      python = {
+        symbol = "👾 ";
+        pyenv_version_name = true;
+      };
       time = {
         disabled = false;
-        time_format = "%T";
-        utc_time_offset = "-6";
-        time_range = "10:00:00-14:00:00";
+        time_format = "%R"; # Hour:Minute Format
+        format = "🕙 $time ";
       };
     };
   };
