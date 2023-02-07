@@ -8,21 +8,10 @@
     enableNushellIntegration = true;
     # Configuration written to ~/.config/starship.toml
     settings = {
-      username = {
-        format = "[$user](bold blue) ";
-        disabled = false;
-        show_always = true;
-      };
-      hostname = {
-        ssh_only = false;
-        format = "on [$hostname](bold red) ";
-        trim_at = ".local";
-        disabled = false;
-      };
       scan_timeout = 10;
       add_newline = false;
       character = {
-        success_symbol = "[➜](bold green)";
+        success_symbol = "[>](bold green)";
       };
       package = {
         disabled = true;
@@ -44,7 +33,6 @@
           ahead = "🏎💨";
           behind = "😰";
           diverged = "😵";
-          up_to_date = "✓";
           untracked = "🤷";
           stashed = "📦";
           modified = "📝";
