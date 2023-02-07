@@ -8,11 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixos-vscode-server.url = "github:msteen/nixos-vscode-server";
-    nixos-vscode-server.flake = false;
-    comma.url = "github:nix-community/comma";
-    comma.inputs.nixpkgs.follows = "nixpkgs";
   };
   
   outputs = inputs @ { self, flake-parts, home-manager, nixpkgs, ... }: 
