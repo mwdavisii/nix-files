@@ -10,9 +10,6 @@
     settings = {
       scan_timeout = 10;
       add_newline = false;
-      character = {
-        success_symbol = "[>](bold green)";
-      };
       package = {
         disabled = true;
       };
@@ -28,11 +25,16 @@
       conda = {
         format = "[$symbol$environment](dimmed green) ";
       };
+      git_branch = {
+          symbol = "🌱 ";
+          truncation_length = 4;
+          truncation_symbol = "";
+      };
       git_status = {
           conflicted = "🏳";
-          ahead = "🏎💨";
-          behind = "😰";
-          diverged = "😵";
+          ahead = "⇡$count";
+          diverged = "⇕⇡$ahead_count⇣$behind_count";
+          behind = "⇣$count";
           untracked = "🤷";
           stashed = "📦";
           modified = "📝";
