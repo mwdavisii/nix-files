@@ -32,26 +32,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export ZSH=~/.oh-my-zsh
 
 #########################################################################################
-#  ALIASES
-#########################################################################################
-
-alias ls="exa -alG"
-alias clr="clear"
-alias vi="nvim"
-alias pip="pip3"
-alias python="python3"
-alias ip="curl -4 icanhazip.com" #public IP address
-alias ll="ls -alG"
-alias ldir="ls -al | grep ^d"
-alias o="open ."
-alias ut="uptime"
-alias lip="ifconfig | grep \"inet \" | grep -Fv 127.0.0.1 | awk '{print $2}'"
-alias k="kubectl"
-alias kap="kubectl apply -f "
-alias kad="kubectl delete -f "
-
-
-#########################################################################################
 #  ZSH Configurations
 #########################################################################################
 CASE_SENSITIVE="true"
