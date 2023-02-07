@@ -2,7 +2,7 @@
 
 {
   imports = [ 
-    ./alcritty.nix
+    ./alacritty.nix
     ./discord.nix
     ./vscode.nix
     ./wezterm.nix
