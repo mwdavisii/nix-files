@@ -13,17 +13,24 @@ function exec_apt_update_install () {
         echo -e "${GREEN}Installing packages and dependencies...${NC}"
         sudo apt install  -y
         echo -e "${GREEN}Packages and dependencies installed.${NC}"
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
-	echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-	sudo apt-get -y update
-	sudo apt-get -y install sublime-text xclip software-properties-common apt-transport-https
-	sudo apt-get -y install build-essential procps curl file git
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    #fonts
-    git clone https://github.com/powerline/fonts.git --depth=1
-	./fonts/install.sh
-	rm -rf fonts
+        wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
+        echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+        sudo apt-get -y update
+        sudo apt-get -y install sublime-text xclip software-properties-common apt-transport-https libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+        sudo apt-get -y install build-essential procps curl file git 
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        #fonts
+        git clone https://github.com/powerline/fonts.git --depth=1
+        ./fonts/install.sh
+        rm -rf fonts
+
 }
+
+function install_chrome () {
+        sudo apt -y install chrome-gnome-shell
+        
+}
+
 
 function install_awscli () {
        curl -L "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
