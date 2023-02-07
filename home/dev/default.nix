@@ -2,6 +2,7 @@
 
 {
   imports = [ 
+    ./vscode.nix
     ./go.nix
     #./python.nix
     #./cpp.nix
