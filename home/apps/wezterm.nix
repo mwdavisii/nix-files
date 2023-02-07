@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-programs.vscode = {
+programs.wezterm = {
     enable = true;
   };
 }
