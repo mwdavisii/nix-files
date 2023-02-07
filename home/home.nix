@@ -9,7 +9,7 @@
 
   home = {
     packages = with pkgs; [
-      tmux
+      
     ];
   };
   #home.file.".zshrc".source = ../dotfiles/.zshrc;
