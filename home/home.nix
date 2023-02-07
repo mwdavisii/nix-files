@@ -12,7 +12,7 @@
     pkgs.tmux
   ];
   
-  home.file.".zshrc".source = ../dotfiles/.zshrc;
+  #home.file.".zshrc".source = ../dotfiles/.zshrc;
   home.file.".bashrc".source = ../dotfiles/.bashrc;
   home.file.".gitconfig".source = ../dotfiles/.gitconfig;
   home.file.".nix-channels".source = ../dotfiles/.nix-channels;

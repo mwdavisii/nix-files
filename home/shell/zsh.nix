@@ -4,6 +4,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
+      ".." = "cd ..";
       "ls"="exa -alG";
       "clr"="clear";
       "vi"="nvim";
@@ -24,11 +25,45 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
         "docker"
         "fluxcd"
       ];
     };
+    initExtra = ''
+        function cd() {
+        builtin cd "$@"
+
+        if [[ -z "$VIRTUAL_ENV" ]] ; then
+          ## If env folder is found then activate the vitualenv
+            if [[ -d ./.venv ]] ; then
+              echo "Detected .venv folder."
+        echo "Activating .venv"
+        source ./.venv/bin/activate
+        ## If there is a requirements.txt file, go ahead and create a venv.
+            elif [[ -f ./requirements.text ]]; then
+        echo "Detected requirements.txt but no venv."
+        echo "Creating venv at .venv"
+        python3 -m venv .venv
+        echo "Activating venv"
+        source ./.venv/bin/activate
+            fi
+        else
+          ## check the current folder belong to earlier VIRTUAL_ENV folder
+          # if yes then do nothing
+          # else deactivate
+            parentdir="$(dirname "$VIRTUAL_ENV")"
+            if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        echo "Leaving project directory and deactivating .venv"
+              deactivate
+            fi
+        fi
+      }
+
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
+      eval "$(starship init zsh)" #Launch Starship
+      source <(kubectl completion zsh) #Kubectl Autocompletion
+      . <(flux completion zsh) # Flux Autocompletion
+      [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
+    '';
   };
 }
