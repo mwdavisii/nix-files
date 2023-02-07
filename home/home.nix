@@ -10,6 +10,7 @@
   home.packages = [
     # pkgs is the set of all packages in the default home.nix implementation
     pkgs.tmux
+    pkgs.discord
   ];
   /*
   home.file.".zshrc".source = ../config/.zshrc;
@@ -27,6 +28,5 @@
     ../programs/nvim.nix
     ../programs/vim.nix
     ../programs/zsh.nix
-    ../programs/discord.nix
   ];
 }
