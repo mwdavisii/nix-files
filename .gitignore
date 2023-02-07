@@ -1,9 +1,0 @@
-.DS_Store
-result
-installer
-.env
-symmetric.key
-.direnv/
-config/.config/zsh/.zcompdump
-config/.config/zsh/.zsh_sessions/
-config/.config/nushell/history.txt

@@ -1,101 +1,35 @@
 {
-  description = ''
-    Nyx is the personal configuration. This repository holdes .dotfile configuration as well as both nix (with
-    home-manager) and nixos configurations.
-  '';
+  description = "Home Flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    darwin.url = "github:lnl7/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
-
-    nur.url = "github:nix-community/nur";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
-
-    flake-compat.url = "github:edolstra/flake-compat";
-    flake-compat.flake = false;
-
-    # Overlays
-    fenix.url = "github:nix-community/fenix";
-    fenix.inputs.nixpkgs.follows = "nixpkgs";
-
-    neovim-flake.url = "github:neovim/neovim?dir=contrib";
-    neovim-flake.inputs.nixpkgs.follows = "nixpkgs";
-
-    nushell-src.url = "github:nushell/nushell";
-    nushell-src.flake = false;
-
-    # eww.url = "github:elkowar/eww";
-  };
-
-  outputs = { self, home-manager, ... }@inputs:
-    with self.lib;
-    let
-      systems = [ "x86_64-linux" "x86_64-darwin" ];
-      foreachSystem = genAttrs systems;
-      pkgsBySystem = foreachSystem (
-        system:
-        import inputs.nixpkgs {
-          inherit system;
-          config = import ./nix/config.nix;
-          overlays = self.overlays."${system}";
-        }
-      );
-    in
-    rec {
-      inherit pkgsBySystem;
-      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-      lib = import ./lib { inherit inputs; } // inputs.nixpkgs.lib;
-      devShell = foreachSystem (system: import ./shell.nix { pkgs = pkgsBySystem."${system}"; });
-
-      templates = import ./nix/templates;
-
-      packages = foreachSystem (system: import ./nix/pkgs self system);
-      overlay = foreachSystem (system: _final: _prev: self.packages."${system}");
-      overlays = foreachSystem (
-        system: with inputs; let
-          ovs = attrValues (import ./nix/overlays self);
-        in
-        [
-          (self.overlay."${system}")
-          (nur.overlay)
-          (fenix.overlays.default)
-          # (_:_: { inherit (eww.packages."${system}") eww; })
-        ] ++ ovs
-      );
-
-      homeManagerConfigurations = mapAttrs' mkHome {
-        eden = { };
-      };
-
-      nixosConfigurations = mapAttrs' mkSystem {
-        pride = { };
-        sloth = { };
-        vm-dev = { };
-      };
-
-      darwinConfigurations = mapAttrs' mkDarwin {
-        theman = { user = "work"; };
-      };
-
-      # Convenience output that aggregates the outputs for home, nixos, and darwin configurations.
-      # Also used in ci to build targets generally.
-      top =
-        let
-          nixtop = genAttrs
-            (builtins.attrNames inputs.self.nixosConfigurations)
-            (attr: inputs.self.nixosConfigurations.${attr}.config.system.build.toplevel);
-          hometop = genAttrs
-            (builtins.attrNames inputs.self.homeManagerConfigurations)
-            (attr: inputs.self.homeManagerConfigurations.${attr}.activationPackage);
-          darwintop = genAttrs
-            (builtins.attrNames inputs.self.darwinConfigurations)
-            (attr: inputs.self.darwinConfigurations.${attr}.system);
-        in
-        nixtop // hometop // darwintop;
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-vscode-server.url = "github:msteen/nixos-vscode-server";
+    nixos-vscode-server.flake = false;
+    comma.url = "github:nix-community/comma";
+    comma.inputs.nixpkgs.follows = "nixpkgs";
+  };
+  
+  outputs = inputs @ { self, flake-parts, home-manager, nixpkgs, ... }: 
+  flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        # To import a flake module
+        # 1. Add foo to inputs
+        # 2. Add foo as a parameter to the outputs function
+        # 3. Add here: foo.flakeModule
+
+      ];
+    flake = {
+      homeConfigurations.mwdavisii = home-manager.lib.homeManagerConfiguration {
+        modules = [
+          ./home/home.nix
+      ];
+      };
+    };
+  };
 }

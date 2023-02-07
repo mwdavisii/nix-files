@@ -10,7 +10,6 @@
   home.packages = [
     # pkgs is the set of all packages in the default home.nix implementation
     pkgs.tmux
-    pkgs.discord
   ];
   /*
   home.file.".zshrc".source = ../config/.zshrc;
@@ -23,10 +22,12 @@
   */
   
   imports = [
+    ../programs/discord.nix
     ../programs/git.nix
-    ../programs/starship.nix
     ../programs/nvim.nix
+    ../programs/starship.nix
     ../programs/vim.nix
+    #../programs/vscode.nix
     ../programs/zsh.nix
   ];
 }
