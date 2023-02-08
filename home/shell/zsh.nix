@@ -32,6 +32,7 @@
     };
     initExtra = ''
       export PATH=$PATH:~/anaconda3/bin
+      export PATH=$PATH:~/.nix-profile/bin
       function cd() {
         builtin cd "$@"
 
