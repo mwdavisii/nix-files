@@ -63,9 +63,8 @@
       }
 
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
-      eval "$(starship init zsh)" #Launch Starship
       source <(kubectl completion zsh) #Kubectl Autocompletion
-      . <(flux completion zsh) # Flux Autocompletion
+      #. <(flux completion zsh) # Flux Autocompletion
       [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
     '';
   };
