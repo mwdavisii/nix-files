@@ -26,12 +26,6 @@ function exec_apt_update_install () {
 
 }
 
-function install_chrome () {
-        sudo apt -y install chrome-gnome-shell
-        
-}
-
-
 function install_awscli () {
        curl -L "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
        unzip awscliv2.zip
@@ -94,11 +88,15 @@ function install_qt_vdk () {
 }
 
 function install_home_manager(){
+  mkdir -p ~/.config/nix
+  echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
   curl -L https://nixos.org/nix/install | sh
   . /home/mwdavisii/.nix-profile/etc/profile.d/nix.sh
   nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
   nix-channel --update
   export NIX_PATH=${NIX_PATH:+$NIX_PATH:}$HOME/.nix-defexpr/channels
+  #remove the freshly installed files so home-manager can replace them.
+  rm ~/.bashrc ~/.nix-channels
   nix run . switch -- --flake . --impure
 }
 
