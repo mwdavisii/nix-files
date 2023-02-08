@@ -22,7 +22,6 @@
     };
     enableSyntaxHighlighting = true;
     enableAutosuggestions = true;
-    
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -31,6 +30,7 @@
       ];
     };
     initExtra = ''
+      export SHELL=/home/mwdavisii/.nix-profile/bin/zsh
       export PATH=$PATH:~/anaconda3/bin
       export PATH=$PATH:~/.nix-profile/bin
       function cd() {

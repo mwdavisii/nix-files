@@ -13,8 +13,8 @@
     ];
   };
   home.file.".nix-channels".source = ../dotfiles/.nix-channels;
-  home.file.".config/nvim/init.vim".source = ../dotfiles/.config/nvim/init.vim;
-   home.file.".bashrc".source = ../dotfiles/.bashrc;
+  #home.file.".config/nvim/init.vim".source = ../dotfiles/.config/nvim/init.vim;
+  home.file.".bashrc".source = ../dotfiles/.bashrc;
 
   imports = [
     ./apps/default.nix
