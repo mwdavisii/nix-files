@@ -1,15 +1,14 @@
 { config, pkgs, ... }:
-with pkgs;
-{
-  imports = [
-    ./neovim-plugins.nix
-  ];
 
-  config = {
+{
     programs.neovim = {
       enable = true;
       viAlias = true;
       vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        sensible
+        deoplete-nvim
+      ];
       extraLuaConfig = ''
         require("catppuccin").setup({
           integrations = {
@@ -171,5 +170,4 @@ with pkgs;
 
       '';
     };
-  };
 }
