@@ -5,12 +5,16 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
     
+    nur.url = "github:nix-community/nur";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
+
     # Overlays
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -22,8 +26,7 @@
     nushell-src.flake = false;
   };
   
-  outputs = inputs @ { self, home-manager, nixpkgs, ... }: 
-    
+  outputs = inputs @ { self, home-manager, nixpkgs, ... }:   
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

@@ -132,6 +132,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1675889104,
+        "narHash": "sha256-y+dbyqT0fG12Quz+3An9tX7YDp8ECvLUfzL1+kKv17s=",
+        "owner": "nix-community",
+        "repo": "nur",
+        "rev": "25532084181df9ea13551576233ab3e680525d2b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "nushell-src": {
       "flake": false,
       "locked": {
@@ -155,6 +170,7 @@
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs",
+        "nur": "nur",
         "nushell-src": "nushell-src"
       }
     },
