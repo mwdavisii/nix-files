@@ -9,7 +9,7 @@
         ];
         sessionVariables = {
             GOPATH = "/home/mwdavisii/go";
-            GOBIN = "home/mwdavisii/.nix-profile/bin/";
+            GOBIN = "/home/mwdavisii/.nix-profile/bin/";
             GOPRIVATE = "github.com/uLabSystems";        
         };
     };  
