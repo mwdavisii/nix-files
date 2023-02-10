@@ -27,6 +27,9 @@
       plugins = [
         "docker"
         "fluxcd"
+        "git"
+        "tmux"
+        "python"
       ];
     };
     initExtra = ''
