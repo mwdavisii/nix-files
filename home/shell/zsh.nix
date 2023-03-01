@@ -65,7 +65,6 @@
         fi
       }
 
-      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" #Homebrew
       source <(kubectl completion zsh) #Kubectl Autocompletion
       #. <(flux completion zsh) # Flux Autocompletion
       [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh #fuzzyfind
