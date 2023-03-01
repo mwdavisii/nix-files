@@ -1,15 +1,14 @@
 { lib, ... }:
 
+with builtins;
+with lib;
 {
-  imports = [ 
-    ./exa.nix
-    ./fzf.nix
-    ./jq.nix
-    ./k9s.nix
-    ./nvim.nix 
-    ./starship.nix 
-    ./tmux.nix
-    ./vim.nix 
-    ./zsh.nix 
-  ];
+  imports =
+    let
+      paths = filterAttrs (n: v: v != null && !(hasPrefix "_" n)) (readDir ./.);
+      files = filterAttrs (n: v: v == "regular" && n != "default.nix") paths;
+      dirs = filterAttrs (n: v: v == "directory") paths;
+      map' = p: map (x: "${toString ./.}/${x}") (attrNames p);
+    in
+    map' dirs ++ map' files;
 }
