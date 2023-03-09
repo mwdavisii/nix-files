@@ -18,9 +18,7 @@ I'm using a config file for neovim (/.config/nvim/init.vim) because I haven't ta
 
 1. Install VIMPlug
 
-    ```shell
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    ```
     ```
 
 2. Launch Neovim and click `<enter>` through the errors.
