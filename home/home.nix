@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-
 {
   programs.home-manager.enable = true;
   home.username = "mwdavisii";
@@ -18,9 +17,10 @@
   home.file.".aws/config".source = ../dotfiles/.aws/config;
 
   imports = [
-    ./apps/default.nix
-    ./shell/default.nix
-    ./common/default.nix
-    ./dev/default.nix
+    ./apps
+    ./shell
+    ./common
+    ./cloud
+    ./dev
   ];
 }
