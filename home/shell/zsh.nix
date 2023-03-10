@@ -37,6 +37,7 @@
       export PATH=$PATH:~/anaconda3/bin
       export PATH=$PATH:~/.nix-profile/bin
       export PATH=$PATH:/usr/local/cuda-12.0/bin
+      export PATH=$PATH:/home/mwdavisii/.local/bin
       function cd() {
         builtin cd "$@"
 
